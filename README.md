@@ -32,6 +32,10 @@ helm repo add stable https://charts.helm.sh/stable
 ```
 #### Install KubeFed v0.8.1 in kube-federation-system namespace (default) with the following command:
 ```
+
+git clone https://github.com/kubernetes-sigs/kubefed.git
+cd kubefed/charts/kubefed/
+kubectl create namespace kube-federation
 helm install  kubefed  . --namespace kube-federation-system
 
 kubectl get pod  -n kube-federation-system
@@ -55,7 +59,7 @@ kubectl config get-contexts
 kubefedctl join JOINED_CLUSTER_NAME --host-cluster-name=HOST_CLUSTER_NAME --host-cluster-context=HOST_CLUSTER_CONTEXT --cluster-context=JOINED_CLUSTER_CONTEXT
 
 example:
-kubefedctl join lab-a --host-cluster-name=zone --host-cluster-context=zone --cluster-context=lab-a
+kubefedctl join cluster-A --host-cluster-name=host-cluster --host-cluster-context=zone --cluster-context=lab-a
 ```
 #### After you’ve joined clusters, you can check the status via the below command:
 ```
@@ -81,8 +85,8 @@ metadata:
 spec:
   placement:
     clusters:
-    - name: zone-a
-    - name: zone-b
+    - name: cluster-A
+    - name: cluster-B
 EOF
 cat << EOF | kubectl apply -f -
 apiVersion: types.kubefed.io/v1beta1
@@ -110,7 +114,7 @@ spec:
             name: nginx
   placement:
     clusters:
-    - name: zone-a
-    - name: zone-b
+    - name: cluster-A
+    - name: cluster-B
 EOF
 ```
