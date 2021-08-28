@@ -65,6 +65,7 @@ kubefedctl join JOINED_CLUSTER_NAME --host-cluster-name=HOST_CLUSTER_NAME --host
 
 example:
 kubefedctl join us-west-oregon --host-cluster-name=host-cluster --host-cluster-context=zone --cluster-context=lab-a
+kubefedctl join asia-pacific-tokyo --host-cluster-name=host-cluster --host-cluster-context=zone --cluster-context=lab-b
 ```
 #### After you’ve joined clusters, you can check the status via the below command:
 ```
