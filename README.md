@@ -57,6 +57,7 @@ kubectl config set-context CONTEXTNAME --cluster=CLUSTERNAME --user=USERNAME
 #### Check the contexts for all clusters:
 ```
 kubectl config get-contexts
+kubectl config use-context <context-name>
 ```
 #### Use kubefedctl join to register clusters into the host cluster:
 ```
