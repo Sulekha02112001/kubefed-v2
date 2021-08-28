@@ -91,7 +91,7 @@ spec:
   placement:
     clusters:
     - name: us-west-oregon
-    - name: asia-pacific-india
+    - name: asia-pacific-tokyo
 EOF
 cat << EOF | kubectl apply -f -
 apiVersion: types.kubefed.io/v1beta1
@@ -121,6 +121,6 @@ spec:
   placement:
     clusters:
     - name: us-west-oregon
-    - name: asia-pacific-india
+    - name: asia-pacific-tokyo
 EOF
 ```
