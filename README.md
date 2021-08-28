@@ -9,7 +9,7 @@ To learn more about KubeFed: https://github.com/kubernetes-sigs/kubefed
 
 #### Prerequisites
 Kubernetes clusters must be up and running: kubernetes v1.13+.
-In this article, we’ll have three Kubernetes clusters. One is for installing Federation Control Plane as the host cluster (named zone). The others are for deploying applications named lab-a and lab-b.
+In this article, we’ll have three Kubernetes clusters. One is for installing Federation Control Plane as the host cluster (context named zone). The others are for deploying applications named us-west-oregon (context named lab-a) and asia-pacific-tokyo (context named lab-b).
 
 #### KubeFed CLI Installation
 https://github.com/kubernetes-sigs/kubefed/releases
