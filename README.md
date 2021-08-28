@@ -12,6 +12,7 @@ Kubernetes clusters must be up and running: kubernetes v1.13+.
 In this article, we’ll have three Kubernetes clusters. One is for installing Federation Control Plane as the host cluster (named zone). The others are for deploying applications named lab-a and lab-b.
 
 #### KubeFed CLI Installation
+https://github.com/kubernetes-sigs/kubefed/releases
 ```
 wget https://github.com/kubernetes-sigs/kubefed/releases/download/v0.8.1/kubefedctl-0.8.1-linux-amd64.tgz
 tar -zxvf kubefedctl-*.tgz
