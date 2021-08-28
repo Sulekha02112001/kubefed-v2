@@ -35,7 +35,7 @@ helm repo add stable https://charts.helm.sh/stable
 
 git clone https://github.com/kubernetes-sigs/kubefed.git
 cd kubefed/charts/kubefed/
-kubectl create namespace kube-federation
+kubectl create namespace kube-federation-system
 helm install  kubefed  . --namespace kube-federation-system
 
 kubectl get pod  -n kube-federation-system
@@ -43,6 +43,11 @@ kubectl get pod  -n kube-federation-system
 #### Cluster Registration
 
 In the host cluster, set up Kubectl config for lab-a and lab-b, so we’ll be able to access those clusters via a context switch and use the context to join the federation:
+
+Refer - https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/ and follow the steps 
+
+(OR)
+
 ```
 #Replace CLUSTERNAME, CLUSTERIP, USERNAME, TOKEN, CONTEXTNAME
 kubectl config set-cluster CLUSTERNAME --server=CLUSTERIP
@@ -59,7 +64,7 @@ kubectl config get-contexts
 kubefedctl join JOINED_CLUSTER_NAME --host-cluster-name=HOST_CLUSTER_NAME --host-cluster-context=HOST_CLUSTER_CONTEXT --cluster-context=JOINED_CLUSTER_CONTEXT
 
 example:
-kubefedctl join cluster-A --host-cluster-name=host-cluster --host-cluster-context=zone --cluster-context=lab-a
+kubefedctl join us-west-oregon --host-cluster-name=host-cluster --host-cluster-context=zone --cluster-context=lab-a
 ```
 #### After you’ve joined clusters, you can check the status via the below command:
 ```
@@ -85,8 +90,8 @@ metadata:
 spec:
   placement:
     clusters:
-    - name: cluster-A
-    - name: cluster-B
+    - name: us-west-oregon
+    - name: asia-pacific-india
 EOF
 cat << EOF | kubectl apply -f -
 apiVersion: types.kubefed.io/v1beta1
@@ -114,7 +119,7 @@ spec:
             name: nginx
   placement:
     clusters:
-    - name: cluster-A
-    - name: cluster-B
+    - name: us-west-oregon
+    - name: asia-pacific-india
 EOF
 ```
