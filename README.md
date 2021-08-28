@@ -116,6 +116,7 @@ spec:
         spec:
           containers:
           - image: nginx
+            imagePullPolicy: IfNotPresent
             name: nginx
   placement:
     clusters:
